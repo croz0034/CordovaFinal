@@ -1,8 +1,8 @@
 const croz0034 = {
     URL: '',
     DATA: '',
-    SPELLROSTER: '',
-    CLASSROSTER: '',
+    SPELLROSTER: [],
+    CLASSROSTER: [],
     PAGE: 1,
     BOOKMARK : "",
     init: function(){
@@ -30,7 +30,7 @@ const croz0034 = {
             let Job;
             let Armour;
             
-        for( i of Classes){
+        for( i of croz0034.CLASSROSTER){
             if (i.Jobtype == 1) { Job = "Melee Fighter"}
             else if (i.Jobtype == 2 ) { Job = "Magic Caster"}
             else{Job = "Restricted Class"}
@@ -81,7 +81,7 @@ const croz0034 = {
             let classcard = document.createElement('div');
             stage.appendChild(classcard);
             
-            for( i of Classes){
+            for( i of croz0034.CLASSROSTER){
                 if (i.Name == classTar){
             
             
@@ -142,7 +142,7 @@ const croz0034 = {
     lvlHead.textContent = "lv: " + x;
     additions.appendChild(lvlHead);}
             
-                     for (let i of abilities) {
+                     for (let i of croz0034.SPELLROSTER) {
             x = JSON.stringify(i["class/level"]);
             LTP =  JSON.stringify(job) + ':0';
             L1 =  JSON.stringify(job) + ':1';
@@ -220,8 +220,8 @@ let spellRange = ["magic ball", "self", "touch", "20 feet", "50 feet", "unlimite
 let spellMaterials = ["magic ball", "enchant strip", "--"];
 let states = ["cursed", "fragile", "frozen", "immune", "insubstantial", "out of game", "stopped", "stunned", "suppressed", "resistant"];
         
-        
         croz0034.AbilityCollapse(ev);
+        
         let Spell = this.info;
         let bridge = this;
         let housing = document.createElement('div');
@@ -266,11 +266,19 @@ let states = ["cursed", "fragile", "frozen", "immune", "insubstantial", "out of 
 },
 
 organizeSpells: function(){
-    let compSpells = [];
-    compSpells.push(JSON.stringify(abilities));
-    compSpells.sort();
-    croz0034.SPELLROSTER = compSpells;
-    console.log(compSpells);
+      let newOrder = [];
+    for ( i of abilities){
+        newOrder.push(i.name);
+    };
+    newOrder.sort();
+    let oldorder = abilities;
+    for( x=0; x <= newOrder.length; x++){
+        for (y of oldorder){
+            filter = newOrder[x];
+            filteritem = JSON.stringify(y)
+            if(filteritem.includes(filter)){croz0034.SPELLROSTER.push(JSON.parse(filteritem))}
+    }}
+    
     
 },
 
@@ -290,18 +298,55 @@ organizeClasses: function(){
             RestrictedClasses.push(i)
         }
     };
-    JSON.stringify(MagicClasses);
-    MagicClasses.sort();
-    JSON.stringify(MeleeClasses);
-    MeleeClasses.sort();
-    JSON.stringify(RestrictedClasses);
-    RestrictedClasses.sort();
+ 
     
-    compClasses.push(MeleeClasses);
-//    compClasses.push(MagicClasses);
-//    compClasses.push(RestrictedClasses);
-    croz0034.CLASSROSTER = compClasses;
-    console.log(compClasses);
+    
+    let newOrder = [];
+    for ( i of MeleeClasses){
+        newOrder.push(i.Name);
+        console.log(newOrder);
+    };
+    newOrder.sort();
+    console.log(newOrder);
+    let oldorder = Classes;
+    for( x=0; x <= newOrder.length; x++){
+        for (y of oldorder){
+            filter = newOrder[x];
+            filteritem = JSON.stringify(y)
+            if(filteritem.includes(filter)){croz0034.CLASSROSTER.push(JSON.parse(filteritem))}
+    }}
+    
+    
+    newOrder = [];
+    for ( i of MagicClasses){
+        newOrder.push(i.Name);
+        console.log(newOrder);
+    };
+        newOrder.sort();
+    console.log(newOrder);
+    for( x=0; x <= newOrder.length; x++){
+        for (y of oldorder){
+            filter = newOrder[x];
+            filteritem = JSON.stringify(y)
+            if(filteritem.includes(filter)){croz0034.CLASSROSTER.push(JSON.parse(filteritem))}
+    }}
+    newOrder = [];
+    for ( i of RestrictedClasses){
+        newOrder.push(i.Name);
+        console.log(newOrder);
+    };
+        newOrder.sort();
+    console.log(newOrder);
+    for( x=0; x <= newOrder.length; x++){
+        for (y of oldorder){
+            filter = newOrder[x];
+            filteritem = JSON.stringify(y)
+            if(filteritem.includes(filter)){croz0034.CLASSROSTER.push(JSON.parse(filteritem))}
+    }
+    }
+    
+    
+    
     
 }
 }

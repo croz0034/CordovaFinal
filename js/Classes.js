@@ -69,7 +69,7 @@ let Classes = [{
         "Jobtype": 1,
 		"Sash": "Orange"
 	},{
-		"Name": "AntiPaladin",
+		"Name": "Antipaladin",
         "Armour": 4,
         "Shield": 3,
         "Weapons": ["All Melee", "Javelins"],

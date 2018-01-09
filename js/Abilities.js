@@ -198,7 +198,7 @@ let abilities = [{
 		"name": "Awe",
 		"class/level": [{
 			"Bard": 3
-		}, {"Paladin": 0},{"AntiPaladin": 0}, {"Paladin": 5},{"AntiPaladin": 5}],
+		}, {"Paladin": 0},{"Antipaladin": 0}, {"Paladin": 5},{"Antipaladin": 5}],
 		"type": 2,
 		"school": 0,
 		"range": 3,
@@ -400,7 +400,7 @@ let abilities = [{
 		"class/level": [{
 			"Barbarian": 5
 		}, {
-			"AntiPaladin": 4
+			"Antipaladin": 4
 		}],
 		"type": 2,
 		"school": 1,
@@ -1707,7 +1707,7 @@ let abilities = [{
 		}, {
 			"Druid": 4
 		}, {
-			"AntiPaladin": 2
+			"Antipaladin": 2
 		}],
 		"type": 1,
 		"school": 1,
@@ -2239,7 +2239,7 @@ let abilities = [{
 		}, {
 			"Wizard": 5
 		}, {
-			"AntiPaladin": 3
+			"Antipaladin": 3
 		}],
 		"type": 2,
 		"school": 1,
@@ -2496,7 +2496,7 @@ let abilities = [{
 		"name": "Undead Minion",
 		"class/level": [{
 			"Healer": 3
-		},{"AntiPaladin": 6}],
+		},{"Antipaladin": 6}],
 		"type": 1,
 		"school": 1,
 		"range": 2,
@@ -2614,7 +2614,7 @@ let abilities = [{
 		"statelink": ""
 	},	{
 		"name": "Charge",
-		"class/level": [{"Archer": 1}, {"Assassin": 2}, {"Monk":3},{"Scout":1}, {"warrior":5}, {"Bard": 1}, {"Healer": 1}, {"Druid": 1}, {"Wizard": 1}, {"Paladin": 2},{"AntiPaladin": 2}, ],
+		"class/level": [{"Archer": 1}, {"Assassin": 2}, {"Monk":3},{"Scout":1}, {"warrior":5}, {"Bard": 1}, {"Healer": 1}, {"Druid": 1}, {"Wizard": 1}, {"Paladin": 2},{"Antipaladin": 2}, ],
 		"type": 2,
 		"school": 0,
 		"range": 3,
@@ -2652,7 +2652,7 @@ let abilities = [{
 		"class/level": [{
 			"Paladin": 1
 		},{
-			"AntiPaladin": 1
+			"Antipaladin": 1
 		},{
 			"Barbarian": 1
 		}],
@@ -2670,7 +2670,7 @@ let abilities = [{
 	{
 		"name": "Immune to Flame",
 		"class/level": [{
-			"AntiPaladin": 1
+			"Antipaladin": 1
 		}],
 		"type": 1,
 		"school": 4,
