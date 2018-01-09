@@ -124,6 +124,9 @@ body{
 .cardstock:hover{
     color: orange;
 }
+#magic{
+    color: black;
+}
 /**********************************
         ANIMATIONS
 **********************************/
