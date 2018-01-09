@@ -67,20 +67,21 @@ body{
 }
 .item-card img{
     float:left;
-    margin-right: 1rem;
     padding: 0.5rem;
-    width: auto;
-    height: 8rem;
-    border-right: 1px solid #333;
+    max-height: 8rem;
+    max-width: 30%;
 }
 .item-title{
     font-size: 1.5rem;
     font-weight: 100;
     line-height: 2.4rem;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     padding-right: 1rem;
     color: #222;
     cursor: pointer;
+    margin-left: 30%;
+    padding-left: 1rem;
+    border-left: 1px solid #333;
 }
 .item-title:hover{
     color: orange;
@@ -91,10 +92,13 @@ body{
     line-height: 1.2rem;
     padding-bottom: 1rem;
     padding-right: 1rem;
-    color: #888;
+    color: #555;
     height: 3.6rem;
     text-overflow: clip;
     overflow: hidden;
+    margin-left: 30%;
+    padding-left: 1rem;
+    border-left: 1px solid #333;
 }
 /**********************************
         DETAILS PAGE
@@ -120,6 +124,7 @@ body{
 }
 .cardstock{
     border-bottom: 1px solid #bbb;
+    padding-left: 0.5rem;
 }
 .cardstock:hover{
     color: orange;

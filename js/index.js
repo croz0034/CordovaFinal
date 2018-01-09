@@ -41,6 +41,10 @@ const croz0034 = {
             else { Armour = "virtually non-existent"};
             
             let spellplate = document.createElement('div');
+            
+            spellplate.addEventListener('click', croz0034.AbilityPage);
+            
+            spellplate['data-key'] = i.Name;
             spellplate.classList.add("item-card");
             stage.appendChild(spellplate);
             additions = document.createElement('img');
@@ -49,10 +53,8 @@ const croz0034 = {
             additions.alt = "icon for " + i.Name;
             spellplate.appendChild(additions);
             additions = document.createElement('h3');
-            additions.classList.add("item-title");
-            additions['data-key'] = i.Name;
             additions.textContent = i.Name;
-            additions.addEventListener('click', croz0034.AbilityPage)
+            additions.classList.add("item-title");
             spellplate.appendChild(additions);
             additions = document.createElement('p');
             additions.classList.add('item-desc');
@@ -183,11 +185,14 @@ const croz0034 = {
                 function levelRig(i){
         let spellplate = document.createElement('div');
         spellplate.id = i.name;
-        spellplate.info = i;
         spellplate.classList.add("cardstock");
-        spellplate.addEventListener('click', croz0034.AbilityExpand)
-        let spellname = document.createElement('div');
-        spellname.textContent = i.name
+        let spellname = document.createElement('p');
+        spellname.textContent = i.name;
+        spellname.info = i;
+        spellname.addEventListener('click', croz0034.AbilityExpand);
+        spellplate.appendChild(spellname);
+        spellname = document.createElement('div');
+        spellname.id = i.name;
         spellplate.appendChild(spellname);
         if (CurrentRow.id == "lv0"){console.log(CurrentRow); console.log(spellplate)}
         CurrentRow.appendChild(spellplate);
@@ -221,12 +226,12 @@ let spellMaterials = ["magic ball", "enchant strip", "--"];
 let states = ["cursed", "fragile", "frozen", "immune", "insubstantial", "out of game", "stopped", "stunned", "suppressed", "resistant"];
         
         croz0034.AbilityCollapse(ev);
-        
         let Spell = this.info;
-        let bridge = this;
+        let bridge = document.getElementById(Spell.name);
         let housing = document.createElement('div');
         housing.id = 'magic';
         housing.classList.add('item-card');
+        housing.addEventListener('click', croz0034.AbilityCollapse);
         bridge.appendChild(housing);
     let users = document.createElement('p');
     for (let i of Spell["class/level"]) {
@@ -264,7 +269,6 @@ let states = ["cursed", "fragile", "frozen", "immune", "insubstantial", "out of 
             demolishion.parentNode.removeChild(demolishion);
         }
 },
-
 organizeSpells: function(){
       let newOrder = [];
     for ( i of abilities){
