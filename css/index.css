@@ -61,6 +61,7 @@ body{
     margin: 1rem 2rem;
     border: 1px solid #bbb;
     box-shadow: 2px 2px 2px #ddd;
+    width: 80%;
     overflow: auto;
     background-color: #eee;
 }
@@ -119,6 +120,9 @@ body{
 }
 .cardstock{
     border-bottom: 1px solid #bbb;
+}
+.cardstock:hover{
+    color: orange;
 }
 /**********************************
         ANIMATIONS
