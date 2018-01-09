@@ -1,11 +1,4 @@
 let Classes = [{
-		"Name": "Archer",
-        "Armour": 2,
-        "Shield": 0,
-        "Weapons": ["Dagger", "Short", "Bow"],
-        "Jobtype": 1,
-		"Sash": "Orange"
-	},{
 		"Name": "Assassin",
         "Armour": 2,
         "Shield": 0,
@@ -68,6 +61,13 @@ let Classes = [{
         "Weapons": ["Dagger", "(Short, Long)"],
         "Jobtype": 2,
 		"Sash": "Yellow"
+	},{
+		"Name": "Archer",
+        "Armour": 2,
+        "Shield": 0,
+        "Weapons": ["Dagger", "Short", "Bow"],
+        "Jobtype": 1,
+		"Sash": "Orange"
 	},{
 		"Name": "AntiPaladin",
         "Armour": 4,

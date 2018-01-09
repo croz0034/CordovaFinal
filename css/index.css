@@ -105,14 +105,21 @@ body{
 .back-btn:hover{
     color: orange;
 }
-.ability(
-    margin: 1rem 2rem;
-    border: 1px solid #ddd;
-    box-shadow: 2px 2px 2px #ddd;
-    overflow: auto;
-    background-color: #eee;
+.ability p{
+    text-align: center;
+    padding: 0 auto;
+    border-bottom: 1px solid #bbb;
     
-)
+}
+#andy{
+    float:left;
+    padding: 0;
+    width: auto;
+    height: 10rem;
+}
+.cardstock{
+    border-bottom: 1px solid #bbb;
+}
 /**********************************
         ANIMATIONS
 **********************************/

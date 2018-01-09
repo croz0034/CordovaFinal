@@ -1,10 +1,14 @@
 const croz0034 = {
     URL: '',
     DATA: '',
+    SPELLROSTER: '',
+    CLASSROSTER: '',
     PAGE: 1,
     BOOKMARK : "",
-    init: function(){ 
-    croz0034.pageConstruct()
+    init: function(){
+    croz0034.organizeSpells();
+    croz0034.organizeClasses();
+    croz0034.pageConstruct();
         
     },
     orientation: function(){
@@ -75,10 +79,17 @@ const croz0034 = {
             additions.textContent = classTar;
             housing.appendChild(additions);
             let classcard = document.createElement('div');
-            classcard.classList.add('item-card');
             stage.appendChild(classcard);
+            
             for( i of Classes){
                 if (i.Name == classTar){
+            
+            
+            additions = document.createElement('img');
+            additions.src = "img/" + i.Name + ".png"
+            additions.id ="andy";
+            additions.alt = "Amtgard rulebook portrayal of a:  " + i.Name;
+            classcard.appendChild(additions);
                     
 /////////////////// Profficiencies
                     additions = document.createElement('li');
@@ -126,8 +137,10 @@ const croz0034 = {
         additions = document.createElement("div");
         additions.classList.add('item-card');
         additions.id = "lv" + x;
-        additions.textContent = "lv: " + x;
-        stage.appendChild(additions);}
+        stage.appendChild(additions);
+    let lvlHead = document.createElement("h4");
+    lvlHead.textContent = "lv: " + x;
+    additions.appendChild(lvlHead);}
             
                      for (let i of abilities) {
             x = JSON.stringify(i["class/level"]);
@@ -141,7 +154,6 @@ const croz0034 = {
             if (x.includes(LTP)) {
                 CurrentRow = document.querySelector('#lv0');
                 levelRig(i);
-                console.log('ability found');
             };   
             if (x.includes(L1)) {
                 CurrentRow = document.querySelector('#lv1');
@@ -174,9 +186,8 @@ const croz0034 = {
         spellplate.info = i;
         spellplate.classList.add("cardstock");
         spellplate.addEventListener('click', croz0034.AbilityExpand)
-        let spellname = document.createElement('p');
+        let spellname = document.createElement('div');
         spellname.textContent = i.name
-        spellname.classList.add('ability')
         spellplate.appendChild(spellname);
         if (CurrentRow.id == "lv0"){console.log(CurrentRow); console.log(spellplate)}
         CurrentRow.appendChild(spellplate);
@@ -196,6 +207,10 @@ const croz0034 = {
         p1.classList.toggle('active');
         let p2 = document.getElementById('details-page');
         p2.classList.toggle('active');
+        
+        
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     }
     ,
     AbilityExpand: function(ev){        
@@ -213,10 +228,6 @@ let states = ["cursed", "fragile", "frozen", "immune", "insubstantial", "out of 
         housing.id = 'magic';
         housing.classList.add('item-card');
         bridge.appendChild(housing);
-        
-        let spellname = document.createElement('h4');
-    spellname.textContent = Spell.name;
-    housing.appendChild(spellname)
     let users = document.createElement('p');
     for (let i of Spell["class/level"]) {
         users.textContent += JSON.stringify(i);
@@ -252,5 +263,51 @@ let states = ["cursed", "fragile", "frozen", "immune", "insubstantial", "out of 
         if (demolishion){
             demolishion.parentNode.removeChild(demolishion);
         }
-}}
+},
+
+organizeSpells: function(){
+    let compSpells = [];
+    compSpells.push(JSON.stringify(abilities));
+    compSpells.sort();
+    croz0034.SPELLROSTER = compSpells;
+    console.log(compSpells);
+    
+},
+
+organizeClasses: function(){
+    let MagicClasses = [];
+    let MeleeClasses = [];
+    let RestrictedClasses = [];
+    let compClasses = [];
+    
+    for (i of Classes){
+        if (i.Jobtype == 1){
+            MeleeClasses.push(i)
+        }
+        else if (i.Jobtype == 2){
+            MagicClasses.push(i)
+        } else{
+            RestrictedClasses.push(i)
+        }
+    };
+    JSON.stringify(MagicClasses);
+    MagicClasses.sort();
+    JSON.stringify(MeleeClasses);
+    MeleeClasses.sort();
+    JSON.stringify(RestrictedClasses);
+    RestrictedClasses.sort();
+    
+    compClasses.push(MeleeClasses);
+//    compClasses.push(MagicClasses);
+//    compClasses.push(RestrictedClasses);
+    croz0034.CLASSROSTER = compClasses;
+    console.log(compClasses);
+    
+}
+}
 document.addEventListener('DOMContentLoaded', croz0034.init);
+
+
+
+
+
