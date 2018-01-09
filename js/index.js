@@ -91,7 +91,7 @@ const croz0034 = {
             additions.alt = "Amtgard rulebook portrayal of a:  " + i.Name;
             classcard.appendChild(additions);
                     
-/////////////////// Profficiencies
+/////////////////// Proficiencies
                     additions = document.createElement('li');
                     additions.textContent = "Sash Colour: " + i.Sash;
                     classcard.appendChild(additions)
@@ -109,7 +109,7 @@ const croz0034 = {
                     additions.textContent = "Max Shield: " + shield;
                     classcard.appendChild(additions)
                      additions = document.createElement('p');
-                    additions.textContent = "Weapon Profficiencies: ";
+                    additions.textContent = "Weapon Proficiencies: ";
                for (p of i.Weapons){
                    additions.textContent = additions.textContent + ", " + p;
                    
