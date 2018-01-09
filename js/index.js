@@ -142,6 +142,8 @@ const croz0034 = {
         stage.appendChild(additions);
     let lvlHead = document.createElement("h4");
     lvlHead.textContent = "lv: " + x;
+    if(x == 0){ lvlHead.textContent = "Look the Part"}
+        
     additions.appendChild(lvlHead);}
             
                      for (let i of croz0034.SPELLROSTER) {
@@ -194,7 +196,6 @@ const croz0034 = {
         spellname = document.createElement('div');
         spellname.id = i.name;
         spellplate.appendChild(spellname);
-        if (CurrentRow.id == "lv0"){console.log(CurrentRow); console.log(spellplate)}
         CurrentRow.appendChild(spellplate);
      }
         
@@ -202,7 +203,6 @@ const croz0034 = {
     },
     AbilityPage: function(ev){
         let classTar = this['data-key'];
-        console.log(classTar + "selected");
         croz0034.PageFlip();
         croz0034.PAGE = 2;
         croz0034.pageConstruct(classTar);
@@ -271,18 +271,17 @@ let states = ["cursed", "fragile", "frozen", "immune", "insubstantial", "out of 
 },
 organizeSpells: function(){
       let newOrder = [];
-    for ( i of abilities){
+    for ( i of PseudoJSON.abilities){
         newOrder.push(JSON.stringify(i));
     };
     newOrder.sort();
-    let oldorder = abilities;
+    let oldorder = PseudoJSON.abilities;
     for( x=0; x <= newOrder.length; x++){
         for (y of oldorder){
             filter = newOrder[x];
             filteritem = JSON.stringify(y)
             if(filteritem.includes(filter)){croz0034.SPELLROSTER.push(JSON.parse(filteritem))}
     }}
-    
     
 },
 
@@ -292,7 +291,7 @@ organizeClasses: function(){
     let RestrictedClasses = [];
     let compClasses = [];
     
-    for (i of Classes){
+    for (i of PseudoJSON.Classes){
         if (i.Jobtype == 1){
             MeleeClasses.push(i)
         }
@@ -308,11 +307,9 @@ organizeClasses: function(){
     let newOrder = [];
     for ( i of MeleeClasses){
         newOrder.push(i.Name);
-        console.log(newOrder);
     };
     newOrder.sort();
-    console.log(newOrder);
-    let oldorder = Classes;
+    let oldorder = PseudoJSON.Classes;
     for( x=0; x <= newOrder.length; x++){
         for (y of oldorder){
             filter = newOrder[x];
@@ -324,10 +321,8 @@ organizeClasses: function(){
     newOrder = [];
     for ( i of MagicClasses){
         newOrder.push(i.Name);
-        console.log(newOrder);
     };
         newOrder.sort();
-    console.log(newOrder);
     for( x=0; x <= newOrder.length; x++){
         for (y of oldorder){
             filter = newOrder[x];
@@ -337,10 +332,8 @@ organizeClasses: function(){
     newOrder = [];
     for ( i of RestrictedClasses){
         newOrder.push(i.Name);
-        console.log(newOrder);
     };
         newOrder.sort();
-    console.log(newOrder);
     for( x=0; x <= newOrder.length; x++){
         for (y of oldorder){
             filter = newOrder[x];
