@@ -268,7 +268,7 @@ let states = ["cursed", "fragile", "frozen", "immune", "insubstantial", "out of 
 organizeSpells: function(){
       let newOrder = [];
     for ( i of abilities){
-        newOrder.push(i.name);
+        newOrder.push(JSON.stringify(i));
     };
     newOrder.sort();
     let oldorder = abilities;
