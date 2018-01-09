@@ -157,36 +157,36 @@ const croz0034 = {
             L6 =  JSON.stringify(job) + ':6';              
             if (x.includes(LTP)) {
                 CurrentRow = document.querySelector('#lv0');
-                levelRig(i);
+                levelRig(i, 0);
             };   
             if (x.includes(L1)) {
                 CurrentRow = document.querySelector('#lv1');
-                levelRig(i);
+                levelRig(i, 1);
             }; 
             if (x.includes(L2)) {
                 CurrentRow = document.querySelector('#lv2');
-                levelRig(i);
+                levelRig(i, 2);
             }; 
             if (x.includes(L3)) {
                 CurrentRow = document.querySelector('#lv3');
-                levelRig(i);
+                levelRig(i, 3);
             }; 
             if (x.includes(L4)) {
                 CurrentRow = document.querySelector('#lv4');
-                levelRig(i);
+                levelRig(i, 4);
             }; 
     
             if (x.includes(L5)) {
                 CurrentRow = document.querySelector('#lv5');
-                levelRig(i);
+                levelRig(i, 5);
             }; 
             if (x.includes(L6)) {
                 CurrentRow = document.querySelector('#lv6');
-                levelRig(i);
+                levelRig(i, 6);
             } }
-                function levelRig(i){
+                function levelRig(i, lvl){
         let spellplate = document.createElement('div');
-        spellplate.id = i.name;
+        spellplate.id = lvl;
         spellplate.classList.add("cardstock");
         let spellname = document.createElement('p');
         spellname.textContent = i.name;
@@ -194,7 +194,7 @@ const croz0034 = {
         spellname.addEventListener('click', croz0034.AbilityExpand);
         spellplate.appendChild(spellname);
         spellname = document.createElement('div');
-        spellname.id = i.name;
+        spellname.id = i.name + " " + lvl;
         spellplate.appendChild(spellname);
         CurrentRow.appendChild(spellplate);
      }
@@ -227,7 +227,7 @@ let states = ["cursed", "fragile", "frozen", "immune", "insubstantial", "out of 
         
         croz0034.AbilityCollapse(ev);
         let Spell = this.info;
-        let bridge = document.getElementById(Spell.name);
+        let bridge = document.getElementById(Spell.name + " " + this.parentElement.id);
         let housing = document.createElement('div');
         housing.id = 'magic';
         housing.classList.add('item-card');
